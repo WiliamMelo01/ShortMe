@@ -20,7 +20,7 @@ export class UrlService {
       data: {
         linkToRedirect: data.linkToRedirect,
         hash,
-        shortnedLink: `http://localhost:3000/url/${hash}`,
+        shortnedLink: `${process.env.SERVER_URL}/url/${hash}`,
         expirationDate,
       },
     });
