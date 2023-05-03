@@ -1,73 +1,72 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# ShortMe 
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+ShortMe é um encurtador de URLs criado com o framework NestJS e o ORM Prisma. Este projeto foi criado como um desafio inspirado em outros repositórios que vi na comunidade, como uma forma de aplicar meus conhecimentos em desenvolvimento de APIs RESTful com NestJS e Prisma.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Funcionamento
+O funcionamento do ShortMe é simples: o usuário informa a URL que deseja encurtar e o sistema retorna uma URL mais curta, que redireciona o usuário para a URL original.
 
-## Description
+Além disso, o sistema possui uma funcionalidade de expiração de URLs encurtadas, onde as URLs expiram automaticamente após um período pré-definido, garantindo maior segurança e controle das URLs encurtadas.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+O projeto também conta com testes automatizados, garantindo maior qualidade e confiabilidade no desenvolvimento e manutenção do sistema.
 
-## Installation
+## Tecnologias utilizadas
+O ShortMe foi desenvolvido com as seguintes tecnologias:
 
-```bash
-$ npm install
+[![My Skills](https://skillicons.dev/icons?i=typescript,nestjs,prisma,jest)](https://skillicons.dev)
+<img src="https://static-00.iconduck.com/assets.00/swagger-icon-512x512-halz44im.png" alt="Descrição da Imagem" width="50" height="50" style="border-radius: 20px">
+
+## Executando o projeto localmente
+Para executar o projeto localmente, siga os passos abaixo:
+
+ 1 - Clone o repositório do projeto:
+```
+$ git clone https://github.com/WiliamMelo01/ShortMe.git 
+``` 
+2 - Instale as dependências do projeto:
+```
+cd shortme
+npm install
+``` 
+3 - Inicie o servidor de desenvolvimento:
+```
+npm run start:dev
+```
+4 - Acesse o aplicativo em http://localhost:3000.
+
+## Testes
+Para executar os testes do projeto, basta executar o comando:
+
+```
+npm run test
 ```
 
-## Running the app
+## Documentação da API
 
-```bash
-# development
-$ npm run start
+A documentação completa da API está disponível na rota `/doc`.
 
-# watch mode
-$ npm run start:dev
+Para acessar a documentação da API, basta iniciar a aplicação e acessar a rota em um navegador web:
 
-# production mode
-$ npm run start:prod
-```
 
-## Test
+A documentação é gerada automaticamente a partir dos arquivos de código fonte da aplicação, utilizando a biblioteca Swagger UI.
 
-```bash
-# unit tests
-$ npm run test
 
-# e2e tests
-$ npm run test:e2e
+## Contribuindo
+Contribuições são sempre bem-vindas! Caso queira contribuir para o projeto, basta seguir os seguintes passos:
 
-# test coverage
-$ npm run test:cov
-```
+1 - Faça um fork do projeto.
 
-## Support
+2 - Crie um branch para a sua feature (git checkout -b minha-feature).
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+3 - Implemente a sua feature e adicione testes para ela.
 
-## Stay in touch
+4 - Commite as suas mudanças (git commit -m 'Adiciona minha feature').
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+5 - Envie o código para o seu fork (git push origin minha-feature).
 
-## License
+6 - Abra um pull request no repositório original e aguarde a revisão do seu código.
 
-Nest is [MIT licensed](LICENSE).
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
+
