@@ -9,6 +9,8 @@ Além disso, o sistema possui uma funcionalidade de expiração de URLs encurtad
 
 O projeto também conta com testes automatizados, garantindo maior qualidade e confiabilidade no desenvolvimento e manutenção do sistema.
 
+Para acessar a versão em produção da API ShortMe, basta clicar no link a seguir: https://short-me.up.railway.app.
+
 ## Tecnologias utilizadas
 O ShortMe foi desenvolvido com as seguintes tecnologias:
 
