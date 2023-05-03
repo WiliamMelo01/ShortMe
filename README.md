@@ -1,6 +1,6 @@
 # ShortMe 
 
-ShortMe é um encurtador de URLs criado com o framework NestJS e o ORM Prisma. O projeto foi criado com o objetivo de fornecer uma solução simples para encurtar URLs longas e de fácil utilização.
+ShortMe é um encurtador de URLs criado com o framework NestJS e o ORM Prisma. Este projeto foi criado como um desafio inspirado em outros repositórios que vi na comunidade, como uma forma de aplicar meus conhecimentos em desenvolvimento de APIs RESTful com NestJS e Prisma.
 
 ## Funcionamento
 O funcionamento do ShortMe é simples: o usuário informa a URL que deseja encurtar e o sistema retorna uma URL mais curta, que redireciona o usuário para a URL original.
