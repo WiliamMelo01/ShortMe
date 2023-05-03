@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { UriModule } from './uri/uri.module';
+import { UrlModule } from './url/url.module';
 
 @Module({
-  imports: [UriModule],
+  imports: [UrlModule],
 })
 export class AppModule {}

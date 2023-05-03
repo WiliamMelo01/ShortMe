@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model URI {
+model URL {
   id             String   @id @default(uuid())
   linkToRedirect String
   hash           String   @unique

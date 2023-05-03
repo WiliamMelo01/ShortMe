@@ -8,16 +8,16 @@ import {
   Res,
   HttpStatus,
 } from '@nestjs/common';
-import { createNewShortUriDto } from 'src/dtos/createShortUri.dto';
-import { UriService } from './uri.service';
+import { createNewShortUrlDto } from 'src/dtos/createShortUrl.dto';
+import { UrlService } from './url.service';
 import { Response } from 'express';
 import { ApiTags, ApiOkResponse, ApiCreatedResponse } from '@nestjs/swagger';
 import { ShortedLink } from 'src/dtos/ShortedLink';
 
-@ApiTags('Uri')
-@Controller('uri')
-export class UriController {
-  constructor(@Inject(UriService) private uriService: UriService) {}
+@ApiTags('Url')
+@Controller('url')
+export class UrlController {
+  constructor(@Inject(UrlService) private urlService: UrlService) {}
 
   @Get('/all')
   @ApiOkResponse({
@@ -28,12 +28,12 @@ export class UriController {
         linkToRedirect: 'https://pt-br.facebook.com/',
         hash: '7f86fef5-32de-4626-90c7-681433713d32',
         shortnedLink:
-          'http://localhost:3000/uri/7f86fef5-32de-4626-90c7-681433713d32',
+          'http://localhost:3000/url/7f86fef5-32de-4626-90c7-681433713d32',
       },
     },
   })
-  async getAllShortUris() {
-    return await this.uriService.getAllShortUris();
+  async getAllShortUrls() {
+    return await this.urlService.getAllShortUrls();
   }
 
   @Post('/create')
@@ -45,21 +45,23 @@ export class UriController {
         linkToRedirect: 'https://pt-br.facebook.com/',
         hash: '7f86fef5-32de-4626-90c7-681433713d32',
         shortnedLink:
-          'http://localhost:3000/uri/7f86fef5-32de-4626-90c7-681433713d32',
+          'http://localhost:3000/url/7f86fef5-32de-4626-90c7-681433713d32',
       },
     },
   })
-  async createNewShortUri(
-    @Body() body: createNewShortUriDto,
+  async createNewShortUrl(
+    @Body() body: createNewShortUrlDto,
     @Res() response: Response,
   ) {
-    const result = await this.uriService.createNewShortUri(body);
-    return response.status(HttpStatus.CREATED).json(result);
+    const result = await this.urlService.createNewShortUrl(body);
+    return response
+      .status(HttpStatus.CREATED)
+      .json({ newUrl: result.shortnedLink });
   }
 
-  @Get('/:uri')
-  async redirect(@Param('uri') uri: string, @Res() response: Response) {
-    const result = await this.uriService.findUriByHash(uri);
+  @Get('/:url')
+  async redirect(@Param('url') url: string, @Res() response: Response) {
+    const result = await this.urlService.findUrlByHash(url);
     if (!result) {
       return response.status(HttpStatus.NOT_FOUND).send();
     }

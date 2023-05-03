@@ -1,37 +1,37 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { createNewShortUriDto } from 'src/dtos/createShortUri.dto';
+import { createNewShortUrlDto } from 'src/dtos/createShortUrl.dto';
 import { PrismaService } from '../prisma.service';
 import { v4 } from 'uuid';
 import { addDays } from 'date-fns';
 
 @Injectable()
-export class UriService {
+export class UrlService {
   constructor(@Inject(PrismaService) private prismaService: PrismaService) {}
 
-  async getAllShortUris() {
-    return await this.prismaService.uRI.findMany();
+  async getAllShortUrls() {
+    return await this.prismaService.uRL.findMany();
   }
 
-  async createNewShortUri(data: createNewShortUriDto) {
+  async createNewShortUrl(data: createNewShortUrlDto) {
     const hash = v4().slice(0, 4);
     const expirationDate = addDays(new Date(), 1);
 
-    return await this.prismaService.uRI.create({
+    return await this.prismaService.uRL.create({
       data: {
         linkToRedirect: data.linkToRedirect,
         hash,
-        shortnedLink: `http://localhost:3000/uri/${hash}`,
+        shortnedLink: `http://localhost:3000/url/${hash}`,
         expirationDate,
       },
     });
   }
 
-  async findUriByHash(uri: string) {
-    const uriData = await this.prismaService.uRI.findUnique({
+  async findUrlByHash(url: string) {
+    const urlData = await this.prismaService.uRL.findUnique({
       where: {
-        hash: uri,
+        hash: url,
       },
     });
-    return uriData;
+    return urlData;
   }
 }

@@ -25,7 +25,7 @@ async function bootstrap() {
       'https://github.com/WiliamMelo01',
       'Wiliammelo.mota@gmail.com',
     )
-    .addTag('Uri')
+    .addTag('Url')
     .addServer(process.env.SERVER_URL)
     .build();
 
@@ -34,11 +34,11 @@ async function bootstrap() {
 
   app.enableCors();
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
 
   async function removeExpiredData() {
     const prismaService = new PrismaService();
-    const expiredData = await prismaService.uRI.findMany({
+    const expiredData = await prismaService.uRL.findMany({
       where: {
         expirationDate: {
           lt: new Date(),
@@ -47,7 +47,7 @@ async function bootstrap() {
     });
     await Promise.all(
       expiredData.map(async (data) => {
-        await prismaService.uRI.delete({
+        await prismaService.uRL.delete({
           where: {
             id: data.id,
           },
