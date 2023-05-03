@@ -13,7 +13,7 @@ export class UriService {
   }
 
   async createNewShortUri(data: createNewShortUriDto) {
-    const hash = v4();
+    const hash = v4().slice(0, 4);
     const expirationDate = addDays(new Date(), 1);
 
     return await this.prismaService.uRI.create({
