@@ -14,7 +14,7 @@ describe("Url's shorting tests", () => {
   });
 
   beforeEach(async () => {
-    await prismaService.uRL.deleteMany({
+    await prismaService.url.deleteMany({
       where: {
         NOT: {
           hash: 'a2e4',
@@ -24,7 +24,7 @@ describe("Url's shorting tests", () => {
   });
 
   afterEach(async () => {
-    await prismaService.uRL.deleteMany({
+    await prismaService.url.deleteMany({
       where: {
         NOT: {
           hash: 'a2e4',

@@ -9,14 +9,14 @@ export class UrlService {
   constructor(@Inject(PrismaService) private prismaService: PrismaService) {}
 
   async getAllShortUrls() {
-    return await this.prismaService.uRL.findMany();
+    return await this.prismaService.url.findMany();
   }
 
   async createNewShortUrl(data: createNewShortUrlDto) {
     const hash = v4().slice(0, 4);
     const expirationDate = addDays(new Date(), 1);
 
-    return await this.prismaService.uRL.create({
+    return await this.prismaService.url.create({
       data: {
         linkToRedirect: data.linkToRedirect,
         hash,
@@ -27,7 +27,7 @@ export class UrlService {
   }
 
   async findUrlByHash(url: string) {
-    const urlData = await this.prismaService.uRL.findUnique({
+    const urlData = await this.prismaService.url.findUnique({
       where: {
         hash: url,
       },

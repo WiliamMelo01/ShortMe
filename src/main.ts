@@ -38,7 +38,7 @@ async function bootstrap() {
 
   async function removeExpiredData() {
     const prismaService = new PrismaService();
-    const expiredData = await prismaService.uRL.findMany({
+    const expiredData = await prismaService.url.findMany({
       where: {
         expirationDate: {
           lt: new Date(),
@@ -47,7 +47,7 @@ async function bootstrap() {
     });
     await Promise.all(
       expiredData.map(async (data) => {
-        await prismaService.uRL.delete({
+        await prismaService.url.delete({
           where: {
             id: data.id,
           },

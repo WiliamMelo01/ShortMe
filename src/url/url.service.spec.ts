@@ -16,7 +16,7 @@ describe('UrlService', () => {
   });
 
   beforeEach(async () => {
-    await prismaService.uRL.deleteMany({
+    await prismaService.url.deleteMany({
       where: {
         NOT: {
           hash: 'a2e4',
@@ -26,7 +26,7 @@ describe('UrlService', () => {
   });
 
   afterEach(async () => {
-    await prismaService.uRL.deleteMany({
+    await prismaService.url.deleteMany({
       where: {
         NOT: {
           hash: 'a2e4',
